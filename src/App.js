@@ -97,9 +97,6 @@ class App extends Component {
                                />
                               <hr/>
 
-
-
-
                               <div className="Topic_Heading center">
                                   <b>  Release Date Filter </b>
                               </div>
