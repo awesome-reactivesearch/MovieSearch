@@ -1,0 +1,114 @@
+.navbar {
+  display: flex;
+  justify-content:space-around;
+  align-items: center;
+  height: 60px;
+  background-color:#222428;
+}
+.App_logo{
+margin-top: 3px;
+width: 300px;
+}
+.Search_bar{
+  width: 500px;
+}
+.center{
+  text-align: center;
+}
+.Left_bar {
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 25%;
+    background-color:#222428;
+    color: white;
+    margin-left: 0px;
+
+}
+.Left_bar_optinal{
+
+      flex-direction: column;
+      flex-wrap: wrap;
+      width: 25%;
+      background-color:#222428;
+      color: white;
+      left:0px;
+      margin-left: 0px;
+}
+.RangeSlider{
+  color: white;
+}
+.Main_container{
+  display: flex;
+  flex-direction:row;
+  justify-content: center;
+}
+.Result_container{
+  width: 75%;
+}
+.Result_container_optional{
+   width: 75%;
+}
+.Change_Button{
+
+  bottom: 80px;
+
+}
+.Toggle_Button{
+  display: none;
+  position: fixed;
+  font-size: 15px;
+  height: 35px;
+  z-index: 1;
+  bottom: 5rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+@media all and (max-width: 768px) {
+  .Toggle_Button{
+    display: block;
+  }
+  .Left_bar{
+
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        background-color: #222428;
+        color: white;
+  }
+  .Result_container{
+    width: 100%;
+  }
+  .Left_bar_optinal{
+    display: none;
+  }
+  .Result_container_optional{
+    display: none;
+  }
+  .extra-description{
+    display: none;
+  }
+  .App_logo{
+  margin-top: 3px;
+  width: 150px;
+  }
+}
+.Topic_Heading{
+  color: #FFD180;
+  font-size: 20px;
+}
+.DatePicker{
+  color: black;
+}
+.result-tagline{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.result-image{
+  width: auto;
+  height: auto;
+}
+.result-title{
+  color: red;
+  font-size: 15px;
+}
