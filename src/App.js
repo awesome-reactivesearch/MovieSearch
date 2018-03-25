@@ -1,117 +1,63 @@
 import React, { Component } from 'react';
 import {
   ReactiveBase,
-  DataSearch,
-  RangeSlider,
-  MultiList,
   SelectedFilters,
-  DateRange,
   ResultCard
 } from '@appbaseio/reactivesearch';
+import Navbar from './Components/Navbar.js';
+import Leftbar from './Components/Leftbar.js';
+import Tooltip from './Components/tooltip.js';
 import './App.css';
+
 require("dotenv").config();
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
     this.state = {
       isClicked: false,message: "🔬Show Filters",flag:false,total_results:0
     };
   }
+
+
+
   handleClick()
   {
     this.setState({isClicked: !this.state.isClicked, message: this.state.isClicked?"🔬 Show Filters":"🎬 Show Movies"})
   }
   render() {
     return (
-      <ReactiveBase
-      app="Movie-Search"
-      credentials={process.env.REACT_APP_CLIENT_SECRET}
+          <div className="main-container">
+
+                <ReactiveBase
+                app="Movie-Search"
+                credentials={process.env.REACT_APP_CLIENT_SECRET}
+                theme={{
+                  typography: {
+                    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Noto Sans", "Ubuntu", "Droid Sans", "Helvetica Neue", sans-serif',
+                    fontSize: '16px',
+                  },
+                colors: {
+                  textColor: '#fff',
+                  backgroundColor: '#212121',
+                  primaryTextColor: '#fff',
+                  primaryColor: '#2196F3',
+                  titleColor: '#fff',
+                  alertColor: '#d9534f',
+                  borderColor: '#666',
+                }
+              }}
       >
-              <div className="navbar">
 
-                      <div className="logo_container">
-                          <img  className="App_logo" src="Images/Applogo.png" alt="MovieSearch"/>
-                      </div>
+              <Navbar />
 
-                      <DataSearch
-                          componentId="mainSearch"
-                          dataField={["title"]}
-                          categoryField="title"
-                          className="Search_bar"
-                          queryFormat="and"
-                          placeholder="Search a movie..."
-                          iconPosition="left"
-                          autosuggest={false}
-                          filterLabel="search"
-                        />
-              </div>
+              <div className="sub-container">
 
-              <div className="Main_container">
-                      <div className={this.state.isClicked?"Left_bar":"Left_bar_optinal"} >
-                              <div className="Topic_Heading center">
-                                  <b>  Langauge Filter </b>
-                              </div>
-                              <br/>
+                  <Leftbar  isClicked={this.state.isClicked} />
 
-                              <MultiList
-                                  componentId="language_list"
-                                  dataField="original_language.raw"
-                                  className="Language_Filter"
-                                  size={100}
-                                  sortBy="asc"
-                                  queryFormat="or"
-                                  selectAllLabel="All Languages"
-                                  showCheckbox={true}
-                                  showCount={true}
-                                  showSearch={true}
-                                  placeholder="Search for a language"
-                                  react={{
-                                      and: ["mainSearch","results","Date_Filter","RangeSlider"]
-                                    }}
-                                  showFilter={true}
-                                  filterLabel="language_filter"
-                                  URLParams={false}
-                              />
-                              <hr/>
-                              <div className="Topic_Heading center">
-                                  <b>Ratings Filter</b>
-                              </div>
-                              <br/>
+                 <div className={this.state.isClicked?"result-container-optional":"result-container"} >
 
-                              <RangeSlider
-                                  componentId="RangeSlider"
-                                  dataField="vote_average"
-                                  className="Review_Filter"
-                                  range={{
-                                    "start": 0,
-                                    "end": 10
-                                  }}
-                                  rangeLabels={{
-                                    "start": "0",
-                                    "end": "10"
-                                  }}
-                                  react={{
-                                    and: ["mainSearch","results","language_list","Date_Filter"]
-                                  }}
-                               />
-                              <hr/>
-
-                              <div className="Topic_Heading center">
-                                  <b>  Release Date Filter </b>
-                              </div>
-                              <br/>
-
-                              <DateRange
-                                  componentId="Date_Filter"
-                                  dataField="release_date"
-                                  className="DatePicker"
-                              />
-                              <br/>
-                              <hr/>
-                   </div>
-
-                 <div className={this.state.isClicked?"Result_container_optional":"Result_container"} >
                         <SelectedFilters
                             showClearAll={true}
                             clearAllLabel="Clear filters"
@@ -121,23 +67,31 @@ class App extends Component {
                             componentId="results"
                             dataField="title"
                             react={{
-                              and: ["mainSearch","dateFilter","RangeSlider","language_list","Date_Filter"]
+                              and: ["mainSearch","dateFilter","RangeSlider","language-list","date-filter"]
                             }}
                             pagination={true}
                             className="Result_card"
                             paginationAt="bottom"
                             pages={5}
+                            size={12}
+                            Loader="Loading..."
                             noResults="No results were found..."
                             sortOptions={[
-                                { dataField: "popularity", sortBy: "desc", label: "Sort by Popularity(High to Low)"},
-                                { dataField: "vote_average", sortBy: "desc", label: "Sort by Ratings(High to Low)"},
-                                { dataField: "title.raw", sortBy: "asc", label: "Sort by Title A->Z"},
-                                { dataField: "title.raw", sortBy: "desc", label: "Sort by Title Z->A"},
-                                { dataField: "revenue", sortBy: "desc", label: "Sort by Revenue(High to Low)"}
+                                { dataField: "popularity", sortBy: "desc", label: "Sort by Popularity(High to Low)\u00A0 \u00A0"},
+                                { dataField: "vote_average", sortBy: "desc", label: "Sort by Ratings(High to Low) \u00A0"},
+                                { dataField: "title.raw", sortBy: "asc", label: "Sort by Title A->Z \u00A0"},
+                                { dataField: "title.raw", sortBy: "desc", label: "Sort by Title Z->A \u00A0"},
+                                { dataField: "revenue", sortBy: "desc", label: "Sort by Revenue(High to Low) \u00A0"}
                               ]}
                            innerClass={{
                              image: 'result-image',
-                             tit: 'result-title'
+                             title: 'result-title',
+                             listItem: 'result-item',
+                             list: 'list-container',
+                             sortOptions: 'sort-options',
+                             resultStats: 'result-stats',
+                             resultsInfo: 'result-list-info',
+                             poweredBy: 'powered-by',
                           }}
 
                       onData={
@@ -145,15 +99,33 @@ class App extends Component {
                                       return {
                                             image: "https://image.tmdb.org/t/p/w500"+ res.poster_path,
                                             description: (
-                                                          <div>
-                                                              <p className="result-title"><b>{res.title}</b></p>
-                                                              <p className="rating"><b>★★★★ :</b> {res.vote_average}/10</p>
-                                                                      <div className="extra-description">
-                                                                          <p><b>Popularity Score :</b> {res.popularity}</p>
-                                                                          {(res.tagline) ? <p className="result-tagline"><b>Tagline :</b>{res.tagline}</p> :null}
-                                                                          <p><b>Revenue :</b> ${res.revenue}</p>
-                                                                      </div>
-                                                          </div>
+                                                <div className="result-description">
+                                                        <div className="main-description"   >
+                                                              <Tooltip placement="left"
+                                                                      tooltipContent={(
+                                                                                      <div className="tooltip-content">
+                                                                                              <p>
+                                                                                                        <b className="sub-title">Popularity Score :</b>
+                                                                                                        <span className="subDescription" > {res.popularity}</span>
+                                                                                              </p>
+                                                                                              {(res.tagline) ?
+                                                                                              (<p className="result-tagline">
+                                                                                                        <b className="sub-title">Tagline :</b>
+                                                                                                        <span className="subDescription" >{res.tagline}</span>
+                                                                                              </p>) :null}
+                                                                                              <p>
+                                                                                                        <b className="sub-title">Revenue :</b>
+                                                                                                        <span className="subDescription" > ${res.revenue}</span>
+                                                                                              </p>
+                                                                                        </div>)}
+                                                                      tooltipClasses="tooltip-class"
+                                                                      componentClasses="tooltip-main" >
+
+                                                                                                        <b className="result-title"  ><b>{res.title}</b></b>
+                                                                                                        <p className="rating"><b className="sub-title">★★★★★<span className="voters">({res.vote_count})</span> :</b><span className="subDescription" > {res.vote_average}/10 </span></p>
+                                                              </Tooltip>
+                                                        </div>
+                                                </div>
                               ),
                               url: "http://www.imdb.com/title/"+ res.imdb_id
                               }
@@ -162,10 +134,10 @@ class App extends Component {
                    />
                 </div>
 
-               <button className="Toggle_Button"onClick={this.handleClick.bind(this)}>{this.state.message}</button>
-
-           </div>
+               <button className="toggle-button" onClick={this.handleClick.bind(this)}>{this.state.message}</button>
+          </div>
       </ReactiveBase>
+      </div>
     );
   }
 }

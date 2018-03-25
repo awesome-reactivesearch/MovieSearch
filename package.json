@@ -3,10 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@appbaseio/reactivesearch": "^2.2.1",
+    "@appbaseio/reactivesearch": "^2.3.2",
     "dotenv": "^5.0.0",
+    "jquery": "^3.3.1",
+    "material-design-icons": "^3.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-popper": "^0.8.3",
     "react-scripts": "1.1.1"
   },
   "scripts": {
