@@ -1,13 +1,11 @@
-
-
 hr{
   margin: 5px 0px 0px 0px;
 }
 
-
 a:link {
 	text-decoration: none;
 }
+
 a:hover{
   text-decoration: none;
 }
@@ -85,7 +83,6 @@ a:hover{
 	align-items: center;
 }
 
-
 /* sidebar */
 
 .left-bar,
@@ -136,16 +133,20 @@ a:hover{
 	font-size: 11px;
   color:#e4bb24;
 }
+
 .subDescription {
 	color: #fff;
 }
+
 .result-container {
 	width: 80% ;
 }
 
+
 .result-container-optional {
 	width: 85% ;
 }
+
 .Change_Button {
 	bottom: 80px ;
 }
