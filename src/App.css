@@ -8,6 +8,9 @@ hr{
 a:link {
 	text-decoration: none;
 }
+a:hover{
+  text-decoration: none;
+}
 
 .main-container{
 	margin: 0 10px ;
@@ -65,7 +68,7 @@ a:link {
 
 .search-bar {
 	border: 2px solid #86ddf8;
-	border-radius: 3px
+	border-radius: 3px ;
 }
 
 .navbar {
@@ -108,7 +111,7 @@ a:link {
 }
 
 .list-input {
-	border: 2px solid #86ddf8
+	border: 2px solid #86ddf8 ;
 }
 
 .App_logo {
@@ -120,7 +123,7 @@ a:link {
 }
 
 .DatePicker {
-	color: #000
+	color: #000 ;
 }
 
 /* styling for Result Container */
@@ -130,10 +133,11 @@ a:link {
 }
 
 .voters {
-	font-size: 11px
+	font-size: 11px;
+  color:#e4bb24;
 }
 .subDescription {
-	color: #fff
+	color: #fff;
 }
 .result-container {
 	width: 80% ;
@@ -171,7 +175,7 @@ a:link {
 
 .result-image {
 	height: 100%;
-	width: 100%
+	width: 100% ;
 }
 
 .result-item {
@@ -191,16 +195,12 @@ a:link {
 	align-items: flex-start;
 	-ms-flex-pack: center;
 	justify-content: center;
-	padding-top: 20px
+	padding-top: 20px;
 }
 
 .result-stats {
 	color: #86ddf8;
-	font-size: 14px
-}
-
-.arrow {
-	color: red
+	font-size: 14px;
 }
 
 .result-image {
@@ -250,15 +250,10 @@ a:link {
 	color: #e4bb24;
 }
 
-.filter-button {
-	color: #86ddf8;
-}
-
 .blue {
 	background-color: #86ddf8;
 	height: 1px ;
 }
-
 
 .center {
 	text-align: center;
