@@ -122,7 +122,10 @@ class App extends Component {
                                                                       componentClasses="tooltip-main" >
 
                                                                                                         <b className="result-title"  ><b>{res.title}</b></b>
-                                                                                                        <p className="rating"><b className="sub-title">★★★★★<span className="voters">({res.vote_count})</span> :</b><span className="subDescription" > {res.vote_average}/10 </span></p>
+                                                                                                        <p className="rating">
+                                                                                                              <b className="sub-title">★★★★★ </b>
+                                                                                                              <span className="voters">({res.vote_count})</span> :<span className="subDescription" > {res.vote_average}/10 </span>
+                                                                                                        </p>
                                                               </Tooltip>
                                                         </div>
                                                 </div>
