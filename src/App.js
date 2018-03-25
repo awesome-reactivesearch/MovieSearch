@@ -101,7 +101,8 @@ class App extends Component {
                                             description: (
                                                 <div className="result-description">
                                                         <div className="main-description"   >
-                                                              <Tooltip placement="left"
+                                                              <Tooltip
+                                                                      placement="left"
                                                                       tooltipContent={(
                                                                                       <div className="tooltip-content">
                                                                                               <p>
