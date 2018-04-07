@@ -2,10 +2,6 @@
   margin: 0 10px;
 }
 
-.center {
-  text-align: center;
-}
-
 .sub-container {
   display: -ms-flexbox;
   display: flex;
@@ -25,6 +21,10 @@ a:hover {
 
 hr {
   margin: 5px 0px 0px 0px;
+}
+
+.center {
+  text-align: center;
 }
 
 /* styling for scrollbar */
