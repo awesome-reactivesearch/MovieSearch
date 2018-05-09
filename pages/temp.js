@@ -4,12 +4,12 @@ import {
   SelectedFilters,
   ResultCard
 } from "@appbaseio/reactivesearch";
-import Navbar from "./Components/Navbar.js";
-import Leftbar from "./Components/Leftbar.js";
-import "./App.css";
-require("dotenv").config();
+import Navbar from "./Navbar.js";
+import Leftbar from "./Leftbar.js";
+import initReactivesearch from "@appbaseio/reactivesearch/lib/server";
+// import "./App.css";
 
-class App extends Component {
+class Main extends Component {
   constructor(props) {
     super(props);
 
@@ -25,12 +25,39 @@ class App extends Component {
       message: this.state.isClicked ? "🔬 Show Filters" : "🎬 Show Movies"
     });
   }
+
+  static async getInitialProps() {
+    return {
+      store: await initReactivesearch(
+        [
+          {
+            ...components.datasearch,
+            type: "DataSearch",
+            source: DataSearch
+          },
+          {
+            ...components.numberbox,
+            type: "NumberBox",
+            source: NumberBox
+          },
+          {
+            ...components.resultcard,
+            type: "ResultCard",
+            source: ResultCard
+          }
+        ],
+        null,
+        components.settings
+      )
+    };
+  }
+
   render() {
     return (
       <div className="main-container">
         <ReactiveBase
           app="New-Beta-App"
-          credentials={process.env.REACT_APP_CLIENT_SECRET}
+          credentials="WbN85D6tm:3901af18-8b33-46a0-af8f-d2e7590e68fb"
           theme={{
             typography: {
               fontFamily:
@@ -220,4 +247,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default Main;
