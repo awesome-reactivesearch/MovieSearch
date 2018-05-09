@@ -1,4 +1,4 @@
-// ./pages/_document.js
+import React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
 import { extractCritical } from "emotion-server";
 
@@ -9,6 +9,7 @@ export default class MyDocument extends Document {
     const styles = extractCritical(page.html);
     return { ...page, ...styles };
   }
+
   constructor(props) {
     // for emotion-js
     super(props);
@@ -20,7 +21,7 @@ export default class MyDocument extends Document {
 
   render() {
     return (
-      <html>
+      <html lang="en">
         <Head>
           <link rel="stylesheet" href="/_next/static/style.css" />
           <meta charSet="utf-8" />
@@ -28,6 +29,7 @@ export default class MyDocument extends Document {
             name="viewport"
             content="initial-scale=1.0, width=device-width"
           />
+          {/* for emotion-js */}
           <style dangerouslySetInnerHTML={{ __html: this.props.css }} />
         </Head>
         <body>
