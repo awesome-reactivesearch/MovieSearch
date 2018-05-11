@@ -7,13 +7,12 @@ import {
 import Navbar from "./Navbar.js";
 import Leftbar from "./Leftbar.js";
 import initReactivesearch from "@appbaseio/reactivesearch/lib/server";
-// import "./App.css";
+import "./index.css";
 
 const components = {
   settings: {
     app: "MovieAppFinal",
     credentials: "RxIAbH9Jc:6d3a5016-5e9d-448f-bd2b-63c80b401484",
-    type: "listing",
     theme: {
       typography: {
         fontFamily:
@@ -37,7 +36,7 @@ const components = {
   },
   resultCard: {
     componentId: "results",
-    dataField: "original_title",
+    dataField: "original_title.search",
     react: {
       and: [
         "mainSearch",
@@ -54,7 +53,7 @@ const components = {
     pages: 5,
     size: 12,
     Loader: "Loading...",
-    noResults: "No results were found...",
+    noResults: "No results found...",
     sortOptions: [
       {
         dataField: "revenue",

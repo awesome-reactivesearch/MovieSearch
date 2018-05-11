@@ -4,14 +4,15 @@ import { DataSearch } from "@appbaseio/reactivesearch";
 const components = {
   dataSearch: {
     componentId: "mainSearch",
-    dataField: ["original_title"],
+    dataField: "original_title.search",
     categoryField: "title",
     className: "search-bar",
     queryFormat: "and",
     placeholder: "Search for movies...",
     iconPosition: "left",
     autosuggest: false,
-    filterLabel: "search"
+    filterLabel: "search",
+    highlight: true
   }
 };
 
@@ -34,7 +35,7 @@ class Navbar extends Component {
     return (
       <div className="navbar">
         <div className="logo-container">
-          <img className="app-logo" src="Images/logo.jpg" alt="MovieSearch" />
+          <img className="app-logo" src="/static/logo.jpg" alt="MovieSearch" />
         </div>
 
         <div className="search-container">
