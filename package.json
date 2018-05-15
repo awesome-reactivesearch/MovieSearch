@@ -4,10 +4,10 @@
   "private": true,
   "dependencies": {
     "@appbaseio/reactivesearch": "^2.6.2",
-    "@zeit/next-css": "^0.1.5",
+    "@zeit/next-css": "0.1.5",
     "emotion-server": "9.1.0",
     "material-design-icons": "^3.0.1",
-    "next": "^6.0.0",
+    "next": "5.1.0",
     "react": "16.2.0",
     "react-dom": "16.2.0",
     "react-scripts": "1.1.1"
